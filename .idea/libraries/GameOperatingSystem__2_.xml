@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GameOperatingSystem (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../GameOperatingSystem/out/artifacts/GameOperatingSystem_jar/GameOperatingSystem.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
