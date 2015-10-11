@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../GameOperatingSystem/GameOperatingSystem.iml" filepath="$PROJECT_DIR$/../GameOperatingSystem/GameOperatingSystem.iml" />
+      <module fileurl="file://$USER_HOME$/IdeaProjects/GameOperatingSystem/GameOperatingSystem.iml" filepath="$USER_HOME$/IdeaProjects/GameOperatingSystem/GameOperatingSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/Wave.iml" filepath="$PROJECT_DIR$/Wave.iml" />
     </modules>
   </component>
