@@ -9,11 +9,20 @@ public class Assets {
 
     SpriteSheet blocks = new SpriteSheet();
     SpriteSheet iceblocks = new SpriteSheet();
-    public static SpriteSheet mouse = new SpriteSheet();
+
+    //PLAYER
     public static SpriteSheet player = new SpriteSheet();
 
+    //MOUSE
+    public static SpriteSheet mouse = new SpriteSheet();
     public static BufferedImage mouse_pressed;
     public static BufferedImage mouse_released;
+
+    //BUTTON
+    public static SpriteSheet button = new SpriteSheet();
+    public static BufferedImage button_pressed;
+    public static BufferedImage button_released;
+    public static BufferedImage button_heldOver;
 
     //MODIFICAR AL AÑADIR UN NUEVO BLOQUE
     public static BufferedImage stone_1;
@@ -33,9 +42,16 @@ public class Assets {
         blocks.setSpriteSheet(loadImageFrom.LoadImageFrom(Main.class, "sprites.png"));
         iceblocks.setSpriteSheet(loadImageFrom.LoadImageFrom(Main.class, "ice_world.png"));
         player.setSpriteSheet(loadImageFrom.LoadImageFrom(Main.class, "playersprite.png"));
+        button.setSpriteSheet(loadImageFrom.LoadImageFrom(Main.class, "gamestate_button.png"));
 
+        //MOUSE
         mouse_pressed = mouse.getTile(7,0, 7, 7);
         mouse_released = mouse.getTile(0, 0,7, 7);
+
+        //BUTTON
+        button_released = button.getTile(0, 0, 21, 7);
+        button_pressed = button.getTile(0, 14, 21, 7);
+        button_heldOver = button.getTile(0, 7, 21, 7);
 
         //MODIFICAR AL AÑADIR UN NUEVO BLOQUE
         stone_1 = blocks.getTile(0, 0, 16, 16);
@@ -49,6 +65,18 @@ public class Assets {
         ice_road_vertical = iceblocks.getTile(16, 32, 16, 16);
         ice_road_left_down = iceblocks.getTile(48, 32, 16, 16);
         ice_road_up_right_down = iceblocks.getTile(16, 48, 16 ,16);
+    }
+
+    public static BufferedImage getButton_heldOver() {
+        return button_heldOver;
+    }
+
+    public static BufferedImage getButton_pressed() {
+        return button_pressed;
+    }
+
+    public static BufferedImage getButton_released() {
+        return button_released;
     }
 
     public static BufferedImage getMouse_pressed() {
