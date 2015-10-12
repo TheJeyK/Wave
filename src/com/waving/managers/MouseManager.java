@@ -8,7 +8,7 @@ import java.awt.event.*;
 public class MouseManager implements MouseWheelListener, MouseMotionListener, MouseListener {
 
     private static int mouseMovedX, mouseMovedY;
-    private Point mouse;
+    public static Point mouse;
 
     private static boolean pressed;
 
