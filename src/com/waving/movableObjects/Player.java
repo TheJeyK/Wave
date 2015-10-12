@@ -1,6 +1,7 @@
 package com.waving.movableObjects;
 
 import com.waving.gameloop.GameLoop;
+import com.waving.gamestates.GameStateButton;
 import com.waving.generator.World;
 import com.waving.main.Animator;
 import com.waving.main.Assets;
@@ -39,6 +40,10 @@ public class Player implements KeyListener {
     private float speedRight = 0;
     private float slowDown = 0.08F;
     private float fixDt = 52F/60F;
+
+
+    GameStateButton button1 = new GameStateButton(200, 200);
+    private BufferedImage button1DefaultImage;
 
     private boolean shiftPressed = false;
 
@@ -161,6 +166,7 @@ public class Player implements KeyListener {
     public void tick(double deltaTime) {
 
         playerMouseManager.tick();
+        button1.tick();
 
         render = new Rectangle((int)(pos.xPos - pos.getWorldLocation().xPos + pos.xPos - renderDistanceWidth *32/2 + width/2),
                 (int)(pos.yPos - pos.getWorldLocation().yPos + pos.yPos - renderDistanceHeight*32/2 + height/2),
@@ -454,6 +460,7 @@ public class Player implements KeyListener {
         }
     }
 
+
     public void render(Graphics2D g) {
 
         //Vista cinematografica
@@ -531,6 +538,8 @@ public class Player implements KeyListener {
         guiManager.render(g);
         hudManager.render(g);
         playerMouseManager.render(g);
+
+        button1.render(g);
     }
 
     @Override
@@ -554,10 +563,13 @@ public class Player implements KeyListener {
         if (key == KeyEvent.VK_D) {
             right = true;
         }
-        if (key == KeyEvent.VK_K) {
+        if (key == KeyEvent.VK_SHIFT) {
             //running = true;
             //animationSpeed = animationRunningSpeed;
             maxSpeed = runSpeed;
+        }
+        if (key == KeyEvent.VK_ESCAPE) {
+            System.exit(1);
         }
     }
 
@@ -577,7 +589,7 @@ public class Player implements KeyListener {
         if (key == KeyEvent.VK_D) {
             right = false;
         }
-        if (key == KeyEvent.VK_K) {
+        if (key == KeyEvent.VK_SHIFT) {
             //running = false;
             //animationSpeed = animationWalkingSpeed;
             maxSpeed = walkSpeed;

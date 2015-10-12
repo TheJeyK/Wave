@@ -6,6 +6,7 @@ import my.project.gop.main.Vector2F;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class World {
 
@@ -99,7 +100,13 @@ public class World {
         tiles.tick(deltaTime);
 
         for (BlockEntity entity : blockEnts) {
-            entity.tick(deltaTime);
+            if (player.render.intersects(entity)) {
+                entity.tick(deltaTime);
+
+                entity.setIsAlive(true);
+            } else {
+                entity.setIsAlive(false);
+            }
         }
 
         player.tick(deltaTime);
@@ -109,7 +116,9 @@ public class World {
         tiles.render(g);
 
         for (BlockEntity entity : blockEnts) {
-            entity.render(g);
+            if (player.render.intersects(entity)) {
+                entity.render(g);
+            }
         }
 
         player.render(g);
@@ -117,13 +126,20 @@ public class World {
         g.drawString(blockEnts.size()+"", 200, 200);
     }
 
-    public static ArrayList<BlockEntity> blockEnts = new ArrayList<>();
+    public static CopyOnWriteArrayList<BlockEntity> blockEnts = new CopyOnWriteArrayList<>();
 
     public static void dropBlockEntity(Vector2F pos, BufferedImage block_image) {
         BlockEntity entity = new BlockEntity(pos, block_image);
 
         if (!blockEnts.contains(entity)) {
             blockEnts.add(entity);
+        }
+    }
+
+    public static void removeDroppedEntity(BlockEntity entity) {
+
+        if (blockEnts.contains(entity)) {
+            blockEnts.remove(entity);
         }
     }
 }
