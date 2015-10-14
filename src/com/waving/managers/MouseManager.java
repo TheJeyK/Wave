@@ -8,7 +8,8 @@ import java.awt.event.*;
 public class MouseManager implements MouseWheelListener, MouseMotionListener, MouseListener {
 
     private static int mouseMovedX, mouseMovedY;
-    public static Point mouse;
+
+    public static Point mouse = new Point(mouseMovedX, mouseMovedY);
 
     private static boolean pressed;
 
@@ -23,6 +24,14 @@ public class MouseManager implements MouseWheelListener, MouseMotionListener, Mo
         } else {
             g.drawImage(Assets.getMouse_released(), mouseMovedX, mouseMovedY,32, 32, null);
         }
+    }
+
+    public static boolean isPressed() {
+        return pressed;
+    }
+
+    public static void isPressed(boolean press) {
+        pressed = press;
     }
 
     @Override

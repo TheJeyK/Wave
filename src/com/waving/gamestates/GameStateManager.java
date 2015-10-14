@@ -1,5 +1,7 @@
 package com.waving.gamestates;
 
+import com.waving.gamestate.MenuState;
+
 import java.awt.*;
 import java.util.Stack;
 
@@ -9,7 +11,7 @@ public class GameStateManager {
 
     public GameStateManager() {
         states = new Stack<GameState>();
-        states.push(new WavingLevelLoader(this));
+        states.push(new MenuState(this));
     }
 
     public void tick(double deltaTime) {

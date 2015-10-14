@@ -537,7 +537,6 @@ public class Player implements KeyListener {
                 renderDistanceWidth *32, renderDistanceHeight*32);*/
         guiManager.render(g);
         hudManager.render(g);
-        button1.render(g);
 
         playerMouseManager.render(g);
     }

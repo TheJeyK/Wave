@@ -37,6 +37,10 @@ public class Assets {
     public static BufferedImage ice_road_left_down;
     public static BufferedImage ice_road_up_right_down;
 
+    public static BufferedImage getButton_released() {
+        return button_released;
+    }
+
     public void init() {
         mouse.setSpriteSheet(loadImageFrom.LoadImageFrom(Main.class, "mouse_sprites.png"));
         blocks.setSpriteSheet(loadImageFrom.LoadImageFrom(Main.class, "sprites.png"));
@@ -73,10 +77,6 @@ public class Assets {
 
     public static BufferedImage getButton_pressed() {
         return button_pressed;
-    }
-
-    public static BufferedImage getButton_released() {
-        return button_released;
     }
 
     public static BufferedImage getMouse_pressed() {

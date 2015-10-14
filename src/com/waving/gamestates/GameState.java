@@ -4,10 +4,11 @@ import java.awt.*;
 
 public abstract class GameState {
 
-    GameStateManager gsm;
+    protected GameStateManager gsm;
 
     public GameState(GameStateManager gsm){
         this.gsm = gsm;
+        init();
     }
 
     public abstract void tick(double deltaTime);
